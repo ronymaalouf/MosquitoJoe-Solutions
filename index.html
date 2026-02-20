@@ -158,6 +158,19 @@ body {
 }
 .footer span { color: var(--green); font-weight: 600; }
 </style>
+<!-- PWA meta tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MoJo Tools">
+<meta name="theme-color" content="#0F0F0F">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .catch(err => console.log('SW registration failed:', err));
+    });
+  }
+</script>
 </head>
 <body>
 
